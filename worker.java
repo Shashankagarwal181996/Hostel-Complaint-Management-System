@@ -1,5 +1,5 @@
 
 public interface worker {
-	void carpenter();
-	void electrician();
+	void  carpenter(String user);
+	void electrician(String user);
 }
