@@ -6,6 +6,6 @@ public class IT_Dept extends room {
 	}
 
 	void  lan(){
-		System.out.println("Lan Port of " + username + "is not working");
+		System.out.println("Lan Port of " + user1 + "is not working");
 	}
 }

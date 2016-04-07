@@ -37,6 +37,7 @@ public class Washroom extends Complaint{
 				  p.taps();
 				  break;
 			}
+			 break;
 		case 2:
 			
 		case 3:

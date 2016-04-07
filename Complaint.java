@@ -1,7 +1,6 @@
 import java.util.*;
 public class Complaint extends User{
 	String user1;
-	
 	Complaint(String user){
 		 this.user1 = user;
 	}

@@ -6,6 +6,6 @@ public class Duct_Mechanic extends Complaint {
 	}
 
 	void duct(){
-		System.out.println("Duct is not working correctly for " + username);
+		System.out.println("Duct is not working correctly for " + user1);
 	}
 }

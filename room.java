@@ -1,11 +1,9 @@
 import java.util.*;
-public class room extends Complaint implements worker{
-	room(String user) {
-		super(user);
-		// TODO Auto-generated constructor stub
-	}
-	String user  = username;
+public class room extends Complaint {
 	int prob;
+	room(String user){
+		super(user);
+	}
 	void getproblem(){
 		System.out.println("What is your problem among the following");
 		System.out.println("1.Lan_port \n 2.Duct \n 3.Electrician \n 4.carpenter \n 5.Others");
@@ -30,16 +28,18 @@ public class room extends Complaint implements worker{
 			break;
 		}
 	}
-	@Override
-	public void carpenter() {
+	//@Override
+	/*public static void carpenter() {
 		// TODO Auto-generated method stub
+		System.out.println("Enter your problem out of the following");
+		System.out.println("1.table\n 2. chair 3. almirah \n 4. latches");
 		
 	}
 	@Override
 	public void electrician() {
 		// TODO Auto-generated method stub
 		
-	}
+	}*/
 	
 	
 	
