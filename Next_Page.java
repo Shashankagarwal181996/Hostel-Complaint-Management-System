@@ -5,8 +5,8 @@ public class Next_Page extends JFrame{
 	Next_Page(){
 		 setDefaultCloseOperation(javax.swing.
 				  WindowConstants.DISPOSE_ON_CLOSE);
-		setSize(400,400);
-		setVisible(true);
-		setTitle("Welcome");
+		this.setSize(400,400);
+		this.setVisible(true);
+		this.setTitle("Welcome");
 	}
 }
