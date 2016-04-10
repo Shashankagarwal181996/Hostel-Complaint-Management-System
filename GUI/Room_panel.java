@@ -7,12 +7,12 @@ public class Room_panel extends JPanel implements ActionListener{
 		JButton Electrician = new JButton("Electrician");
 		JButton Duct = new JButton("Duct");
 		JButton Lan_Port= new JButton("Lan Port");
-		JButton others = new JButton("Others");
+		JButton others_room = new JButton("Others");
 		add(Carpenter);
 		add(Electrician);
 		add(Duct);
 		add(Lan_Port);
-		add(others);
+		add(others_room);
 	//	setLayout(new GridLayout(5,1));
 		Carpenter.addActionListener(this);
 		Carpenter.setActionCommand("carpenter");
@@ -26,8 +26,8 @@ public class Room_panel extends JPanel implements ActionListener{
 		Lan_Port.addActionListener(this);
 		Lan_Port.setActionCommand("lan_port");
 		
-		others.addActionListener(this);
-		others.setActionCommand("others");
+		others_room.addActionListener(this);
+		others_room.setActionCommand("others");
 	}
 	public void actionPerformed(ActionEvent ae){
 		if(ae.getActionCommand().equals("carpenter")){
