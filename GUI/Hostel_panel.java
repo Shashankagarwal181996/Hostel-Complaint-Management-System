@@ -1,17 +1,23 @@
 import javax.swing.*;
-
 import java.awt.GridLayout;
 import java.awt.event.*;
 public class Hostel_panel extends JPanel implements ActionListener{
+	JPanel Water_Cooler_panel;
+	JPanel Other_panel;
+	JPanel Hostel_Light_panel;
+	JPanel Cleaning_Hostel_panel;
+	
 	public Hostel_panel(){
 		JButton Water_Cooler = new JButton("Water Cooler");
 		JButton Hostel_Light = new JButton("Hostel Light");
 		JButton Cleaning_hostel = new JButton("Cleaning");
 		JButton others_hostel = new JButton("Others");
+		
 		add(Water_Cooler);
 		add(Hostel_Light);
 		add(Cleaning_hostel);
 		add(others_hostel);
+		
 		Water_Cooler.addActionListener(this);
 		Water_Cooler.setActionCommand("water cooler");
 		
@@ -23,17 +29,33 @@ public class Hostel_panel extends JPanel implements ActionListener{
 		
 		others_hostel.addActionListener(this);
 		others_hostel.setActionCommand("Others");
+		
+		Water_Cooler_panel = new JPanel();
+		Hostel_Light_panel = new JPanel();
+		Cleaning_Hostel_panel = new JPanel();
+		Other_panel = new JPanel();
+		
 	}
 	public void actionPerformed(ActionEvent ae){
 		if(ae.getActionCommand().equals("water cooler")){
-			JPanel Water_Cooler_panel = new JPanel();
+			Hostel_Light_panel.setVisible(false);
+			Cleaning_Hostel_panel.setVisible(false);
+			Other_panel.setVisible(false);
+			
+			Water_Cooler_panel.setVisible(true);
+			
 			Water_Cooler_panel.setLayout(new GridLayout(1,1));
 			JCheckBox Water_Cooler = new JCheckBox("Water Cooler");
 			Water_Cooler_panel.add(Water_Cooler);
 			add("South",Water_Cooler_panel);
 		}
 		else if(ae.getActionCommand().equals("hostel light")){
-			JPanel Hostel_Light_panel = new JPanel();
+			Water_Cooler_panel.setVisible(false);
+			Cleaning_Hostel_panel.setVisible(false);
+			Other_panel.setVisible(false);
+			
+			Hostel_Light_panel.setVisible(true);
+	
 			Hostel_Light_panel.setLayout(new GridLayout(2,1));
 			JCheckBox light = new JCheckBox("Hostel lights");
 			JCheckBox wing_light = new JCheckBox("Wing lights");
@@ -42,7 +64,12 @@ public class Hostel_panel extends JPanel implements ActionListener{
 			add("South",Hostel_Light_panel);
 		}
 		else if(ae.getActionCommand().equals("cleaning")){
-			JPanel Cleaning_Hostel_panel = new JPanel();
+			Water_Cooler_panel.setVisible(false);
+			Hostel_Light_panel.setVisible(false);
+			Other_panel.setVisible(false);
+			
+			Cleaning_Hostel_panel.setVisible(true);
+			
 			Cleaning_Hostel_panel.setLayout(new GridLayout(2,1));
 			JCheckBox wing_cleaning = new JCheckBox(" Wing is not Clean");
 			JCheckBox cleaning = new JCheckBox(" hostel is not Clean");
@@ -51,7 +78,12 @@ public class Hostel_panel extends JPanel implements ActionListener{
 			add("South",Cleaning_Hostel_panel);
 		}
 		else{
-			JPanel Other_panel = new JPanel();
+			Water_Cooler_panel.setVisible(false);
+			Hostel_Light_panel.setVisible(false);
+			Cleaning_Hostel_panel.setVisible(false);
+			
+			Other_panel.setVisible(true);
+			
 			Other_panel.setLayout(new GridLayout(2,1));
 			JLabel other_prob = new JLabel("Any Other Problem");
 			JTextField Other_Hostel = new JTextField();

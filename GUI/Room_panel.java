@@ -2,18 +2,31 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 public class Room_panel extends JPanel implements ActionListener{
+	JButton Carpenter;
+	JButton Electrician;
+	JButton Duct;
+	JButton Lan_Port;
+	JButton others_room;
+	JPanel carp_panel;
+	JPanel elec_panel;
+	JPanel duct_panel;
+	JPanel lan_panel;
+	JPanel other_panel;
+	
 	public Room_panel(){
-		JButton Carpenter = new JButton("Carpenter");
-		JButton Electrician = new JButton("Electrician");
-		JButton Duct = new JButton("Duct");
-		JButton Lan_Port= new JButton("Lan Port");
-		JButton others_room = new JButton("Others");
+		Carpenter = new JButton("Carpenter");
+		Electrician = new JButton("Electrician");
+		Duct = new JButton("Duct");
+		Lan_Port= new JButton("Lan Port");
+		others_room = new JButton("Others");
+		
 		add(Carpenter);
 		add(Electrician);
 		add(Duct);
 		add(Lan_Port);
 		add(others_room);
 	//	setLayout(new GridLayout(5,1));
+		
 		Carpenter.addActionListener(this);
 		Carpenter.setActionCommand("carpenter");
 		
@@ -28,10 +41,23 @@ public class Room_panel extends JPanel implements ActionListener{
 		
 		others_room.addActionListener(this);
 		others_room.setActionCommand("others");
+		
+		carp_panel = new JPanel();
+		elec_panel = new JPanel();
+		duct_panel = new JPanel();
+		lan_panel = new JPanel();
+		other_panel = new JPanel();
 	}
 	public void actionPerformed(ActionEvent ae){
+	
 		if(ae.getActionCommand().equals("carpenter")){
-			JPanel carp_panel = new JPanel();
+			elec_panel.setVisible(false);
+			duct_panel.setVisible(false);
+			lan_panel.setVisible(false);
+			other_panel.setVisible(false);
+			
+			carp_panel.setVisible(true);
+			
 			carp_panel.setLayout(new GridLayout(7,1));
 			JCheckBox Table = new JCheckBox("Table");
 			JCheckBox Chair = new JCheckBox("Chair");
@@ -50,7 +76,13 @@ public class Room_panel extends JPanel implements ActionListener{
 			add("South",carp_panel);
 		}
 		else if(ae.getActionCommand().equals("electrician")){
-			JPanel elec_panel = new JPanel();
+			carp_panel.setVisible(false);
+			duct_panel.setVisible(false);
+			lan_panel.setVisible(false);
+			other_panel.setVisible(false);
+		
+			elec_panel.setVisible(true);
+			
 			elec_panel.setLayout(new GridLayout(6,1));
 			JCheckBox Tubelight = new JCheckBox("TubeLight");
 			JCheckBox Fan = new JCheckBox("Fan");
@@ -67,7 +99,13 @@ public class Room_panel extends JPanel implements ActionListener{
 			add("South",elec_panel);
 		}
 		else if(ae.getActionCommand().equals("duct")){
-			JPanel duct_panel = new JPanel();
+			carp_panel.setVisible(false);
+			elec_panel.setVisible(false);
+			lan_panel.setVisible(false);
+			other_panel.setVisible(false);
+			
+			duct_panel.setVisible(true);
+			
 			duct_panel.setLayout(new GridLayout(2,1));
 			JCheckBox Duct_power = new JCheckBox("Duct is unable to start ");
 			JCheckBox Duct_room = new JCheckBox("Duct for a particular room is not starting for particulr room");
@@ -77,14 +115,26 @@ public class Room_panel extends JPanel implements ActionListener{
 			
 		}
 		else if(ae.getActionCommand().equals("lan_port")){
-			JPanel lan_panel = new JPanel();
+			carp_panel.setVisible(false);
+			duct_panel.setVisible(false);
+			elec_panel.setVisible(false);
+			other_panel.setVisible(false);
+			
+			lan_panel.setVisible(true);
+			
 			lan_panel.setLayout(new GridLayout(1,1));
 			JCheckBox lan_port = new JCheckBox("lan port");
 			lan_panel.add(lan_port);
 			add("South",lan_panel);
 		}
 		else{
-			JPanel other_panel = new JPanel();
+			carp_panel.setVisible(false);
+			duct_panel.setVisible(false);
+			lan_panel.setVisible(false);
+			elec_panel.setVisible(false);
+			
+			other_panel.setVisible(true);
+			
 			other_panel.setLayout(new GridLayout(1,1));
 			JCheckBox others = new JCheckBox("others");
 			other_panel.add(others);

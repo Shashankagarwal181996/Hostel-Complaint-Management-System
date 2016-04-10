@@ -5,12 +5,24 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JPanel;
 public class Washroom_panel extends JPanel implements ActionListener{
+	JButton Carpenter;
+	JButton Electrician;
+	JButton Plumber ;
+	JButton Cleaning ;
+	JButton others;
+	JPanel carp_panel_wash;
+	JPanel elec_panel_wash;
+	JPanel plumber_panel_wash;
+	JPanel Cleaning_panel_wash;
+	JPanel other_panel;
+	
+	
 	public Washroom_panel(){
-		JButton Carpenter = new JButton("Carpenter");
-		JButton Electrician = new JButton("Electrician");
-		JButton Plumber = new JButton("Plumber");
-		JButton Cleaning = new JButton("Cleaning");
-		JButton others = new JButton("Others");
+		Carpenter = new JButton("Carpenter");
+		Electrician = new JButton("Electrician");
+		Plumber = new JButton("Plumber");
+		Cleaning = new JButton("Cleaning");
+		others = new JButton("Others");
 		add(Carpenter);
 		add(Electrician);
 		add(Plumber);
@@ -31,10 +43,23 @@ public class Washroom_panel extends JPanel implements ActionListener{
 		
 		others.addActionListener(this);
 		others.setActionCommand("others");
+	
+		carp_panel_wash = new JPanel();
+		elec_panel_wash = new JPanel();
+		plumber_panel_wash = new JPanel();
+		Cleaning_panel_wash = new JPanel();
+		other_panel = new JPanel();		
 	}
 	public void actionPerformed(ActionEvent ae){
 		if(ae.getActionCommand().equals("carpenter")){
-			JPanel carp_panel_wash = new JPanel();
+			elec_panel_wash.setVisible(false);
+			plumber_panel_wash.setVisible(false);
+			Cleaning_panel_wash.setVisible(false);
+			other_panel.setVisible(false);
+			
+			carp_panel_wash.setVisible(true);
+			
+			
 			carp_panel_wash.setLayout(new GridLayout(3,1));
 			JCheckBox Door = new JCheckBox("Door");
 			JCheckBox Latches = new JCheckBox("Latches");
@@ -45,7 +70,15 @@ public class Washroom_panel extends JPanel implements ActionListener{
 			add("South",carp_panel_wash);
 		}
 		else if(ae.getActionCommand().equals("electrician")){
-			JPanel elec_panel_wash = new JPanel();
+			
+			carp_panel_wash.setVisible(false);
+			plumber_panel_wash.setVisible(false);
+			Cleaning_panel_wash.setVisible(false);
+			other_panel.setVisible(false);
+			
+			elec_panel_wash.setVisible(true);
+			
+			
 			elec_panel_wash.setLayout(new GridLayout(3,1));
 			JCheckBox Tubelight = new JCheckBox("TubeLight");
 			JCheckBox Switches_regulators = new JCheckBox("Switches and regulators");
@@ -56,7 +89,14 @@ public class Washroom_panel extends JPanel implements ActionListener{
 			add("South",elec_panel_wash);
 		}
 		else if(ae.getActionCommand().equals("plumber")){
-			JPanel plumber_panel_wash = new JPanel();
+			carp_panel_wash.setVisible(false);
+			elec_panel_wash.setVisible(false);
+			Cleaning_panel_wash.setVisible(false);
+			other_panel.setVisible(false);
+			
+			plumber_panel_wash.setVisible(true);
+			
+			
 			plumber_panel_wash.setLayout(new GridLayout(2,1));
 			JCheckBox Taps = new JCheckBox(" Taps are not working ");
 			JCheckBox Shower = new JCheckBox("Shower is not functioning properly");
@@ -67,14 +107,27 @@ public class Washroom_panel extends JPanel implements ActionListener{
 			
 		}
 		else if(ae.getActionCommand().equals("cleaning")){
-			JPanel Cleaning_panel_wash = new JPanel();
+			carp_panel_wash.setVisible(false);
+			elec_panel_wash.setVisible(false);
+			plumber_panel_wash.setVisible(false);
+			other_panel.setVisible(false);
+			
+			Cleaning_panel_wash.setVisible(true);
+			
 			Cleaning_panel_wash.setLayout(new GridLayout(1,1));
 			JCheckBox Clean = new JCheckBox("Washroom is not clean");
 			Cleaning_panel_wash.add(Clean);
 			add("South",Cleaning_panel_wash);
 		}
 		else{
-			JPanel other_panel = new JPanel();
+			carp_panel_wash.setVisible(false);
+			elec_panel_wash.setVisible(false);
+			Cleaning_panel_wash.setVisible(false);
+			plumber_panel_wash.setVisible(false);
+			
+			other_panel.setVisible(true);
+			
+
 			other_panel.setLayout(new GridLayout(1,1));
 			JCheckBox others = new JCheckBox("others");
 			other_panel.add(others);
